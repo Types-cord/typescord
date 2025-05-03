@@ -1,6 +1,6 @@
 {
   "name": "typescord-ts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -19,5 +19,23 @@
     "typescript": "^5.2.2",
     "nodemon": "^3.0.1",
     "vitest": "^1.0.0"
+  }
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/types-cord/typescord.git"
+  },
+  "license": "MIT",
+  "author": "Typescord",
+  "description": "A TypeScript library for building Discord bots with type safety and ease of use.",
+  "keywords": [
+    "discord",
+    "typescript",
+    "bot",
+    "library",
+    "typesafety"
+  ],
+  "homepage": "typescord.js.org",
+  "bugs": {
+    "url": "https://github.com/types-cord/typescord/issues"
   }
 }
