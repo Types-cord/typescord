@@ -1,7 +1,7 @@
 import { config } from 'dotenv';
 config();
 
-import { TypescordClient, CommandHandler, getDecoratedCommands } from '../src';
+import { TypescordClient, CommandHandler, getDecoratedCommands } from 'typescord-ts';
 
 class BotCommands {
   @CommandHandler('ping', 'Replies with Pong!')

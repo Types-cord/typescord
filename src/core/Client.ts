@@ -1,10 +1,22 @@
 import { Client, GatewayIntentBits, REST, Routes } from 'discord.js';
 import { Command } from './Command';
 import { Event } from './Event';
+import { config } from 'dotenv';
+
+config();
+
+const TOKEN = process.env.TOKEN;
+const CLIENT_ID = process.env.CLIENT_ID;
+const GUILD_ID = process.env.GUILD_ID;
+
+if (!TOKEN || !CLIENT_ID) {
+  console.warn('[Typescord] WARNING: TOKEN and CLIENT_ID must be set in your .env file. These should be kept secret!');
+  process.exit(1);
+}
 
 type TypescordClientOptions = {
-  token: string;
-  clientId: string;
+  token?: string;
+  clientId?: string;
   guildId?: string;
 };
 
@@ -16,10 +28,10 @@ export class TypescordClient {
   private clientId: string;
   private guildId?: string;
 
-  constructor(options: TypescordClientOptions) {
-    this.token = options.token;
-    this.clientId = options.clientId;
-    this.guildId = options.guildId;
+  constructor(options: TypescordClientOptions = {}) {
+    this.token = options.token ?? TOKEN!;
+    this.clientId = options.clientId ?? CLIENT_ID!;
+    this.guildId = options.guildId ?? GUILD_ID;
     this.client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] });
   }
 
